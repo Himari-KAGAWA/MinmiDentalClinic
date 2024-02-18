@@ -52,6 +52,7 @@ $breakpoints: (
 .inner {
   max-width: 1000px;
   padding: 0 20px;
+  box-sizing: content-box;
   @include mq("md") {
     padding: 0 25px;
   }
@@ -153,7 +154,7 @@ body.no-scroll {
   width: 100%;
   margin: 80px auto 0;
   @include mq("md") {
-    margin-top: 100px;
+    margin-top: 120px;
     max-width: 1920px;
     width: 90.625%;
   }
@@ -219,9 +220,9 @@ body.no-scroll {
 }
 
 .sub-mv__bg--blog {
-  background-image: url(../img/archive_top-sp.jpg);
+  background-image: url(../img/page-blog_top-sp.jpg);
   @include mq("md") {
-    background-image: url(../img/pc/archive_top-pc.jpg);
+    background-image: url(../img/pc/page-blog_top-pc.jpg);
   }
 }
 
@@ -319,6 +320,26 @@ body.no-scroll {
   @include mq("md") {
     padding: 13.5px 45px;
   }
+}
+
+.link-button--medical {
+  font-weight: $bold;
+  border-radius: 12px;
+  padding: 15px 32px;
+  letter-spacing: 0.08em;
+}
+
+.link-button--medical::after {
+  background-image: none;
+}
+
+.link-button--medical:hover {
+  color: $main-color;
+  background-color: $sub-color02;
+}
+
+.link-button--medical:hover::after {
+  background-image: none;
 }
 
 // 予約ボタン
@@ -911,7 +932,6 @@ body.no-scroll {
 .news__inner {
   max-width: 524px;
   padding: 0 20px;
-  width: 100%;
   @include mq("md") {
     padding: 0 4.6875%;
   }
@@ -934,6 +954,12 @@ body.no-scroll {
 
 .news__clinic-hours img {
   width: 100%;
+  border-radius: 12px;
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
+  @include mq("md") {
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
 
 .news__items {
@@ -1623,6 +1649,7 @@ body.no-scroll {
 
 .card-item02__img {
   width: 40.672782%;
+  overflow: hidden;
   @include mq("md") {
     width: 100%;
   }
@@ -1705,6 +1732,19 @@ body.no-scroll {
   @include mq("md") {
     display: inline-block;
   }
+}
+
+.category-tag--medical {
+  font-size: 14px;
+  font-weight: $bold;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  padding: 10.5px 11.8px;
+  border-radius: 24px;
+}
+
+.category-tag--medical-p {
+  background-color: $accent-color;
 }
 
 /* ===============================================
@@ -1816,6 +1856,9 @@ body.no-scroll {
   margin-top: 20px;
   box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.16);
   border-radius: 12px;
+  @include mq("md") {
+    box-shadow: none;
+  }
   @include mq("lg") {
     box-shadow: none;
   }
@@ -2157,5 +2200,995 @@ body.no-scroll {
     margin-top: 60px;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 24px;
+  }
+}
+
+/* ===============================================
+# 下層：診療案内 page-medical
+=============================================== */
+// page-medicalナビ
+.page-medical__nav {
+  margin-top: 62px;
+  @include mq("md") {
+    margin-top: 80px;
+  }
+}
+
+.page-medical__inner {
+  margin: auto;
+  padding: 0 20px;
+  max-width: 500px;
+  @include mq("md") {
+    margin: 0;
+    max-width: 1000px;
+    padding-left: 4.84375%;
+  }
+}
+
+.page-medical__nav-header {
+  font-size: 20px;
+  font-weight: $bold;
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
+.page-medical__nav-header p {
+  display: inline-block;
+  @include mq("md") {
+  }
+}
+.page-medical__nav-header span {
+  margin-left: 14px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.page-medical__nav-special {
+  margin-top: 80px;
+}
+
+.page-medical__nav-items {
+  margin-top: 32px;
+  @include mq("md") {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.page-medical__nav-item {
+  padding: 8px 0;
+  @include mq("md") {
+    padding: 0;
+    margin-right: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+.page-medical__nav-item:nth-last-child(1) {
+  @include mq("md") {
+    margin-right: 0;
+  }
+}
+
+.page-medical__nav-items .page-medical__nav-item:first-of-type {
+  padding-top: 0;
+}
+
+.page-medical__nav-items .page-medical__nav-item:last-of-type {
+  padding-bottom: 0;
+}
+
+.page-medical__nav-item a {
+  width: 100%;
+  text-align: center;
+}
+
+.page-medical__header {
+  text-align: center;
+}
+
+// 一般診療 general
+.page-medical__general {
+  .medical__items {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.top-page-medical__general {
+  margin-top: 100px;
+}
+
+// 特殊診療 special
+.page-medical__special {
+  .medical__items {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.top-page-medical__special {
+  margin-top: 215px;
+}
+
+.medical-cards__item {
+  margin-top: 40px;
+}
+
+.medical-cards__item:nth-child(1) {
+  margin-top: 0;
+}
+
+// medical-cardアイテム
+.card-item03 {
+  background-color: $white;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  @include mq("md") {
+    padding: 60px;
+  }
+}
+
+.card-item03__header {
+  border-bottom: 1px solid #c2c2c2;
+  padding-bottom: 20px;
+  @include mq("md") {
+    display: flex;
+    padding-bottom: 32px;
+  }
+}
+
+.card-item03__title {
+  font-size: 20px;
+  font-weight: $bold;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  @include mq("md") {
+    font-size: 28px;
+    line-height: 1.714285;
+    vertical-align: baseline;
+  }
+}
+
+.card-item03__desc {
+  color: $main-color;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  margin-top: 20px;
+  @include mq("md") {
+    flex-shrink: 0;
+    margin-left: 40px;
+    margin-top: 0;
+    align-self: center;
+  }
+}
+
+.card-item03__body {
+  margin-top: 16px;
+  @include mq("md") {
+    margin-top: 36px;
+    display: flex;
+    gap: 40px;
+  }
+}
+
+.card-item03__text {
+  @include mq("md") {
+    width: 50%;
+  }
+}
+
+.card-item03__img {
+  margin-top: 16px;
+  @include mq("md") {
+    margin: 0;
+    width: 50%;
+  }
+}
+
+.card-item03__img img {
+  border-radius: 20px;
+}
+
+.ribbon {
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  top: 0;
+  margin: 0;
+  padding: 14px 8px 14px;
+  z-index: 2;
+  width: 80px;
+  text-align: center;
+  font-weight: $bold;
+  line-height: 1;
+  letter-spacing: 0.08em;
+  color: $white;
+  background: $main-color;
+  @include mq("md") {
+    font-size: 16px;
+    width: 100px;
+    padding: 24px 12px 20px;
+  }
+}
+
+.ribbon:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  height: 0;
+  width: 0;
+  border-left: 40px solid $main-color;
+  border-right: 40px solid $main-color;
+  border-bottom: 18px solid transparent;
+  @include mq("md") {
+    border-left: 50px solid $main-color;
+    border-right: 50px solid $main-color;
+    border-bottom: 20px solid transparent;
+  }
+}
+
+.ribbon--p {
+  background: $accent-color;
+  @include mq("md") {
+    font-size: 16px;
+    width: 100px;
+    padding: 24px 12px 20px;
+  }
+}
+
+.ribbon--p:after {
+  border-left: 40px solid $accent-color;
+  border-right: 40px solid $accent-color;
+  @include mq("md") {
+    border-left: 50px solid $accent-color;
+    border-right: 50px solid $accent-color;
+    border-bottom: 20px solid transparent;
+  }
+}
+
+/* ===============================================
+# 下層：スタッフ紹介 page-staff
+=============================================== */
+// 院長のあいさつ
+.top-page-staff-director {
+  margin-top: 60px;
+  @include mq("md") {
+    margin-top: 80px;
+  }
+}
+
+.page-staff-director__inner {
+  padding: 0 20px;
+  margin: auto;
+  width: 100%;
+  max-width: 500px;
+  @include mq("lg") {
+    padding: 0;
+    width: 90.625%;
+    max-width: 1000px;
+  }
+}
+
+.page-staff-director__header {
+  text-align: center;
+}
+
+.page-staff-director__content {
+  @include mq("lg") {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 8%;
+    grid-row-gap: 56px;
+  }
+}
+
+.page-staff-director__message {
+  margin-top: 36px;
+  @include mq("lg") {
+    margin-top: 60px;
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+}
+
+.page-staff-director__lead {
+  font-size: 20px;
+  font-weight: $bold;
+  line-height: 1.6;
+  letter-spacing: 0.08em;
+  @include mq("lg") {
+    font-size: 28px;
+    line-height: 1.571428;
+    letter-spacing: 0.112em;
+  }
+}
+
+.page-staff-director__text {
+  margin-top: 28px;
+  @include mq("lg") {
+    margin-top: 36px;
+  }
+}
+
+.page-staff-director__name-box {
+  margin-top: 34px;
+  text-align: right;
+  @include mq("lg") {
+    margin-top: 15px;
+  }
+}
+
+.page-staff-director__name-box p {
+  margin-top: 0;
+}
+
+.page-staff-director__portrait {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  @include mq("lg") {
+    max-width: 460px;
+    margin-top: 60px;
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+  }
+}
+
+.page-staff-director__portrait img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  background-color: lightgray;
+  @include mq("lg") {
+    width: 460px;
+  }
+}
+
+.page-staff-director__profile {
+  margin-top: 40px;
+  @include mq("lg") {
+    margin-top: 0;
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+}
+
+.page-staff-director__title {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: $normal;
+  line-height: 1;
+  padding-bottom: 6px;
+  border-bottom: 1px solid $font;
+}
+
+.page-staff-director__body {
+  margin-top: 15px;
+}
+
+.page-staff-director__experience-content {
+  margin-top: 14px;
+  display: flex;
+}
+
+.page-staff-director__description {
+  margin-left: 15px;
+}
+
+.page-staff-director__qualifications {
+  margin-top: 38px;
+  @include mq("lg") {
+    margin-top: 30px;
+  }
+}
+
+.page-staff-director__qualifications p {
+  margin-top: 14px;
+}
+
+// スタッフ紹介
+.top-page-staff-ourStaff {
+  margin-top: 100px;
+  @include mq("md") {
+    margin-top: 160px;
+  }
+}
+
+.page-staff-ourStaff__inner {
+  max-width: 335px;
+  margin: auto;
+  box-sizing: content-box;
+  @include mq("lg") {
+    padding: 0 60px;
+    max-width: 1000px;
+  }
+}
+
+.page-staff-ourStaff__header {
+  text-align: center;
+}
+
+.page-staff-ourStaff__content {
+  margin-top: 36px;
+}
+
+.page-staff-ourStaff__title {
+  font-size: 16px;
+  font-weight: $bold;
+  line-height: 1;
+  letter-spacing: 0.064em;
+  padding-bottom: 7px;
+  border-bottom: 1px solid $font;
+}
+
+.page-staff-ourStaff__wrapper {
+  margin-top: 36px;
+  @include mq("lg") {
+    margin-top: 60px;
+  }
+}
+
+.page-staff-ourStaff__hygienist-content {
+  margin-top: 36px;
+  @include mq("lg") {
+    margin-top: 40px;
+    display: flex;
+    gap: 80px;
+  }
+}
+
+.page-staff-ourStaff__assistant {
+  margin-top: 40px;
+  @include mq("lg") {
+    margin-top: 60px;
+  }
+}
+
+.page-staff-ourStaff__assistant-content {
+  margin-top: 36px;
+  @include mq("lg") {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 60px 80px;
+  }
+}
+
+// スタッフカード
+.card-item04 + .card-item04 {
+  margin-top: 56px;
+  @include mq("lg") {
+    margin-top: 0;
+  }
+}
+
+.card-item04__img {
+  max-width: 335px;
+  @include mq("lg") {
+    max-width: 280px;
+  }
+}
+
+.card-item04__img img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+.card-item04__title {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: $bold;
+  line-height: 1;
+  letter-spacing: 0.072em;
+  text-align: center;
+}
+
+.card-item04__title span {
+  margin-left: 4px;
+}
+
+.card-item04__title small {
+  font-size: 12px;
+  font-weight: $normal;
+  line-height: 1;
+  letter-spacing: 0.048em;
+  vertical-align: middle;
+}
+
+.card-item01__meta {
+  margin-top: 21px;
+  overflow: hidden;
+}
+
+dt {
+  float: left;
+  clear: left;
+  width: 140px;
+  padding: 17px 20px 16px;
+  background-color: $sub-color02;
+  position: relative;
+}
+
+dt::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background-color: $white;
+}
+
+dt:nth-of-type(3)::after {
+  background-color: $sub-color02;
+}
+
+dd {
+  float: left;
+  padding: 17px 0 16px;
+}
+
+.m-left {
+  margin-left: 20px;
+}
+
+// 画像スライダー
+.top-slider {
+  margin-top: 100px;
+}
+
+.page-staff__slider-inner {
+  padding: 0 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-sizing: content-box;
+  position: relative;
+}
+
+.page-staff__swiper {
+  overflow: visible;
+}
+
+.page-staff__slide-img {
+  width: 200px;
+  @include mq("md") {
+    width: 305px;
+  }
+}
+
+.page-staff__slide-img img {
+  width: 100%;
+  border-radius: 20px;
+}
+
+// ライブラリ
+.page-staff__slider {
+  overflow: hidden;
+  .swiper-slide {
+    width: fit-content;
+  }
+}
+/* ===============================================
+# ブログ一覧 page-blog
+=============================================== */
+.page-container {
+  margin: auto;
+  @include mq("md") {
+    width: 78.90625%;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+  }
+}
+
+.top-page-container {
+  margin-top: 80px;
+  @include mq("md") {
+    margin-top: 60px;
+  }
+}
+
+// main
+.page-container__main {
+  @include mq("md") {
+  }
+}
+
+.page-blog__inner {
+  max-width: 500px;
+  margin: auto;
+  padding: 0 20px;
+  box-sizing: content-box;
+  @include mq("md") {
+    max-width: 680px;
+    padding: 0;
+  }
+}
+
+.page-blog__item {
+  margin-top: 20px;
+}
+
+.page-blog__item-link {
+  display: flex;
+}
+
+.page-blog__item-link:hover .card-item02__img img {
+  transform: scale(1.1, 1.1);
+  transition: 0.3s all;
+}
+
+.page-blog__icon-fit {
+  position: relative;
+}
+
+.page-blog__icon-fit + .page-blog__icon-fit {
+  margin-top: 20px;
+  @include mq("md") {
+    margin-top: 0;
+  }
+}
+
+.page-blog__icon-fit:nth-child(1)::before,
+.page-blog__icon-fit:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  width: 40px;
+  height: 40px;
+  background: url(../img/new-icon.png) no-repeat;
+  background-size: contain;
+  z-index: 1;
+  @include mq("md") {
+    top: -20px;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.page-blog {
+  .card-item02__img {
+    @include mq("md") {
+      width: 36.42%;
+    }
+  }
+
+  .card-item02__img img {
+    display: block;
+    border-radius: 0;
+    height: 101px;
+    object-fit: cover;
+    width: 100%;
+    transition: 0.3s all;
+    @include mq("md") {
+      height: 153px;
+    }
+  }
+
+  .card-item02__header {
+    @include mq("md") {
+      padding: 62px 0 0 20px;
+    }
+  }
+
+  .card-item02__title {
+    @include mq("md") {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  .card-item02__date {
+    @include mq("md") {
+      font-size: 12px;
+      line-height: 1;
+      padding-top: 14px;
+      margin-top: 0;
+      vertical-align: bottom;
+    }
+  }
+
+  .category-tag--ex {
+    @include mq("md") {
+      font-size: 11px;
+      top: 10px;
+      border-radius: 12px;
+      padding: 8px 12px;
+    }
+  }
+}
+
+// pagination
+.pagination-items {
+  width: 100%;
+  margin-top: 60px;
+  color: $main-color;
+  display: flex;
+  justify-content: space-around;
+}
+
+// sidebar
+.top-page-container__side {
+  margin-top: 100px;
+  @include mq("md") {
+    margin-top: 0;
+  }
+}
+
+.sideBar__inner {
+  margin: auto;
+  max-width: 450px;
+  padding: 0 20px;
+  @include mq("md") {
+    padding: 0;
+    max-width: 300px;
+  }
+}
+
+.sideBar__title {
+  font-size: 16px;
+  font-weight: $bold;
+  line-height: 1.25;
+  display: flex;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $font;
+}
+
+.sideBar__icon {
+  margin-right: 10px;
+}
+
+.sideBar__about-img {
+  margin-top: 20px;
+  overflow: hidden;
+  aspect-ratio: 335 / 210;
+  @include mq("md") {
+    aspect-ratio: 300 / 188;
+  }
+}
+
+.sideBar__about-img img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.sideBar__about-body {
+  margin-top: 20px;
+}
+
+.sideBar__about-clinic {
+  font-size: 16px;
+  font-weight: $bold;
+  line-height: 1;
+}
+
+.sideBar__about-text {
+  margin-top: 10px;
+}
+
+.sideBar__link {
+  margin-top: 10px;
+  color: $main-color;
+  line-height: 1;
+}
+
+.sideBar__link a {
+  display: flex;
+  align-items: center;
+}
+
+.sideBar__category,
+.sideBar__arrivals {
+  margin-top: 60px;
+}
+
+.sideBar__category-link {
+  margin-top: 16px;
+}
+
+.sideBar__link-item {
+  margin-left: 20px;
+}
+
+.sideBar__link-item img {
+  margin-right: 6px;
+  width: 6px;
+  height: 12px;
+}
+
+.sideBar__link-item a {
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+// 一覧のブログカード look
+.card-item02__img--look {
+  width: 40%;
+}
+
+.card-item02__img--look img {
+  height: 90px;
+  border-radius: 0;
+}
+
+.card-item02__header--look {
+  width: 60%;
+  margin-left: 0;
+  padding: 0 0 0 10px;
+}
+
+/* ===============================================
+# ブログ詳細ページ single
+=============================================== */
+.page-blog__title {
+  font-size: 20px;
+  font-weight: $bold;
+  line-height: 1.6; /* 160% */
+  letter-spacing: 0.08em;
+  @include mq("md") {
+    font-size: 28px;
+    line-height: 1.428571;
+    letter-spacing: 0.12em;
+  }
+}
+
+.page-blog__date {
+  color: $main-color;
+  font-size: 16px;
+  line-height: 1;
+  vertical-align: baseline;
+}
+
+.page-blog__icon {
+  margin-right: 6px;
+}
+
+.page-blog__link {
+  text-decoration: underline;
+  color: $main-color;
+}
+
+.category-tag--entry {
+  font-size: 11px;
+  padding: 6px 12px;
+  margin-top: 16px;
+  margin-left: 32px;
+  @include mq("md") {
+    margin-top: 20px;
+  }
+}
+
+.page-blog__entry {
+  h2 {
+    margin-top: 56px;
+    color: #1391e6;
+    font-size: 18px;
+    font-weight: $bold;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    padding: 12px 0 12px 16px;
+    background: transparent;
+    border-left: solid 6px $main-color;
+    @include mq("md") {
+      font-size: 24px;
+      letter-spacing: 0.096em;
+    }
+  }
+
+  h3 {
+    margin-top: 40px;
+    color: $main-color;
+    font-size: 16px;
+    font-weight: $bold;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    border-bottom: 1px solid $main-color;
+    padding-bottom: 5px;
+    @include mq("md") {
+      font-size: 20px;
+    }
+  }
+
+  h4 {
+    margin-top: 56px;
+    color: $main-color;
+    font-size: 14px;
+    font-weight: $bold;
+    line-height: normal;
+    letter-spacing: 0.056em;
+    @include mq("md") {
+      font-size: 16px;
+      letter-spacing: 0.064em;
+    }
+  }
+}
+
+.page-blog__img {
+  overflow: hidden;
+  aspect-ratio: 335 / 209;
+  @include mq("md") {
+    aspect-ratio: 670 / 419;
+  }
+}
+
+.page-blog__img img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.page-blog__entry-list {
+  font-size: 16px;
+  line-height: 1.875;
+}
+
+.page-blog__entry-list li {
+  margin-left: 12px;
+  padding: 2px 0;
+}
+
+/* ===============================================
+# フォーム contact
+=============================================== */
+.attention span {
+  color: $accent-color;
+}
+
+.top-attention {
+  margin-top: 60px;
+  @include mq("md") {
+    margin-top: 80px;
+  }
+}
+
+.attention-inner {
+  max-width: 450px;
+  padding: 0 20px;
+  margin: auto;
+  box-sizing: content-box;
+  @include mq("md") {
+    max-width: 730px;
+  }
+}
+
+.top-contact {
+  margin-top: 100px;
+  @include mq("md") {
+    margin-top: 150px;
+  }
+}
+
+.contact__header {
+  text-align: center;
+}
+
+// 完了メッセージ
+.message span {
+  color: $accent-color;
+}
+
+.top-message {
+  margin-top: 60px;
+  @include mq("lg") {
+    margin-top: 80px;
+  }
+}
+
+.message-inner {
+  max-width: 450px;
+  padding: 0 20px;
+  margin: auto;
+  box-sizing: content-box;
+  @include mq("md") {
+    max-width: 728px;
   }
 }

@@ -100,4 +100,66 @@ jQuery(function ($) {
       underNav.addClass("is-color");
     }
   });
+
+  // スムーススクロール
+  jQuery('a[href^="#"]').click(function () {
+    // .headerクラスがついた要素の高さを取得
+    let header = jQuery(".header").innerHeight();
+    // 追加のスクロール量を決定
+    let additionalScroll = window.innerWidth >= 768 ? 90 : 40;
+    // 移動速度を指定（ミリ秒）
+    let speed = 300;
+    // hrefで指定されたidを取得
+    let id = jQuery(this).attr("href");
+    // idの値が#のみだったらターゲットをhtmlタグにしてトップへ戻るようにする
+    let target = jQuery("#" == id ? "html" : id);
+    // ページのトップを基準にターゲットの位置を取得
+    let position = jQuery(target).offset().top - header - additionalScroll;
+    // その分だけ移動すればヘッダーと被りません
+    jQuery("html, body").animate(
+      {
+        scrollTop: position,
+      },
+      speed
+    );
+    return false;
+  });
+
+  // 下層：staff 画像スライダー
+  const slideLength = document.querySelectorAll(
+    ".page-staff__slider .swiper-slide"
+  ).length;
+
+  const initSwiper = () => {
+    const staffSwiper = new Swiper(".page-staff__slider .swiper", {
+      slidesPerView: "auto",
+      spaceBetween: 10,
+      loop: true,
+      loopedSlides: slideLength,
+      speed: 8000,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+      freeMode: {
+        enabled: true,
+        momentum: false,
+      },
+      grabCursor: true,
+      breakpoints: {
+        768: {
+          spaceBetween: 20,
+        },
+      },
+      on: {
+        touchEnd: (swiper) => {
+          swiper.slideTo(swiper.activeIndex + 1);
+        },
+      },
+    });
+  };
+
+  window.addEventListener("load", function () {
+    initSwiper();
+  });
 });
